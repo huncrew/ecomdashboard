@@ -1,38 +1,195 @@
-.App {
+/*
+Grid Whole Body
+*/
+
+/* Add code for container class below */
+.pageContainer {
+  /* Add rules here */
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 100%;
+  grid-template-rows: auto auto 1fr auto auto;
+  grid-template-areas: "header" "left" "main" "footer";
+  
+}
+/* Add media rules for container class below */
+@media (min-width: 440px) {
+  .pageContainer {
+  /* Add rules here */
+  grid-template-columns: 150px 1fr 150px;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "header header header" 
+                       "left main main" 
+					             "footer footer footer";
+  }
+}
+
+/* Properties for other selectors */
+.main {
+  grid-area: main;
+  padding: 25px;
+}
+/*
+Special effects like transition etc
+*/
+.content {
+  transform: rotate(0deg);
+  transition: transform 2s;
+}
+.content:hover {
+  transform: rotate(20deg);
+}
+/*
+Animation
+*/
+.animationBox{ 
+  background-color: lightcoral; 
+  width: 50px; 
+  height: 50px; 
+  animation: myanimation 3s infinite ease-in; 
+  } 
+
+  @keyframes myanimation{
+    0%{width: 50px;
+    }
+    
+    50%{background-color: aquamarine;
+        height: 20px;
+    }
+    
+    100%{width: 100px;
+    }
+}
+
+/*
+Animation - bouncing ball
+*/
+    
+
+.sidebar {
+  grid-area: left;
+  padding-top: 25px;
+  background-color: peachpuff;
+}
+
+
+.footer {
+  grid-area: footer;
+  padding: 10px;
+  background-color:black;
+  color: #fff;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+/*
+FLEXBOX
+*/
+
+.flexboxy {
+  display: flex;
+  justify-content: space-evenly;
+  gap:10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sideBar {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.sideBar .box {
+  background-color: #247;
+  color: #fff;
+  margin: 5px;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 150%;
+}
+
+.sideBar .box:hover {
+  color:aqua;
+}
+
+.sideBar .box::selection {
+  color:blue
+}
+
+/*
+Nav Bar
+*/
+
+.navContainer {
+  grid-area: header;
+  background-color: orange;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: stretch;
+  margin: 0 0 10px;
+}
+
+.navContainer li {
+  list-style-type: none;
+}
+
+.navContainer a {
+  display: inline-block;
+  padding: 25px;
+  margin: 0 25px;
+  text-align: center;
+  text-decoration: none;
   color: white;
+
 }
 
-.App-link {
-  color: #61dafb;
+
+/*
+Search Bar
+*/
+
+.simpleFlexContainer {
+  display: flex;
+  justify-content: center;
+}
+.container {
+  display: inline-flex;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  overflow: hidden;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.icon {
+  padding: 0.8rem;
 }
+
+.searchBox {
+  flex: 1;
+  border: 0;
+}
+
+.searchButton {
+  color: white;
+  background: orange;
+  border: 0;
+  padding: 0.8rem;
+  border-radius: 8px;
+}
+
+/*
+Grid
+
+Really its incredible, I can set how many rows, and how many columns are within a web page.
+This means, I could easily, include a side bar, as one elongated row! thats also responsive...
+bloody marvelous stuff.
+*/
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 100px); 
+  grid-template-rows: 1fr 1fr 2fr;
+  grid-gap: 5px;
+}
+
+/*
+Pseudo Classes
+*/
+
